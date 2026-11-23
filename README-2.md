@@ -13,7 +13,7 @@ A modular environmental monitoring firmware project built around an ESP32, a DHT
 | microSD initialization | SPI SD driver, configurable pins | Standalone SD mounting previously confirmed |
 | CSV logging | Append records, write header, flush/close |validated |
 | Live dashboard | ESP32 HTTP server at `/` | validated |
-| JSON API | `GET /api/status` | To validated |
+| JSON API | `GET /api/status` | validated |
 | CSV download | `GET /download` | validated |
 | UTC timestamps | NTP when Wi-Fi/time available; otherwise blank | validated |
 | Offline operation | Continues logging without Wi-Fi | validated |
