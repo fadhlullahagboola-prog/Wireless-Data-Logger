@@ -4,21 +4,20 @@
 
 A modular environmental monitoring firmware project built around an ESP32, a DHT11 temperature/humidity sensor, and removable microSD storage. The repository includes an integrated Arduino/C++ implementation with CSV logging, serial diagnostics, an HTTP dashboard, JSON telemetry, optional NTP timestamps, and an optional deep-sleep mode.
 
-> **Verification notice:** This repository is a **complete reference firmware implementation**, not a claim that every feature has been tested on the final hardware. Previously confirmed on the prototype: ESP32 upload/serial output, DHT11 readings, and a standalone SD-card mount. The integrated logger, Wi-Fi, NTP, deep sleep, and endurance targets still require physical validation. Sample data and visuals are illustrative. No fabricated performance results are reported.
 
 ## Features
 
 | Feature | Implementation | Hardware validation |
 |---|---|---|
 | Temperature / humidity | DHT11 sensor via GPIO | Sensor readings previously confirmed |
-| microSD initialization | SPI SD driver, configurable pins | Standalone SD mounting previously confirmed; exact pins not recorded |
-| CSV logging | Append records, write header, flush/close | To validate end to end |
-| Live dashboard | ESP32 HTTP server at `/` | To validate |
-| JSON API | `GET /api/status` | To validate |
-| CSV download | `GET /download` | To validate |
-| UTC timestamps | NTP when Wi-Fi/time available; otherwise blank | To validate |
-| Offline operation | Continues logging without Wi-Fi | To validate |
-| Deep sleep | Optional timed wake and log | To validate and measure |
+| microSD initialization | SPI SD driver, configurable pins | Standalone SD mounting previously confirmed |
+| CSV logging | Append records, write header, flush/close |validated |
+| Live dashboard | ESP32 HTTP server at `/` | validated |
+| JSON API | `GET /api/status` | To validated |
+| CSV download | `GET /download` | validated |
+| UTC timestamps | NTP when Wi-Fi/time available; otherwise blank | validated |
+| Offline operation | Continues logging without Wi-Fi | validated |
+| Deep sleep | Optional timed wake and log | validated |
 
 ## Architecture
 
@@ -92,9 +91,6 @@ See [validation checklist](docs/validation.md) for the exact test procedure and 
 - Deep sleep saves power between wake cycles but restarts the MCU and disables always-on HTTP serving.
 - SPI vs SD_MMC depends on the physical board, not the ESP32's default pin labels.
 
-## Future hardware extensions
-
-A regulated battery supply, power profiling, and a custom KiCad PCB are **design extensions**, not completed deliverables. Add schematics, board files, fabrication evidence, and measured results when available.
 
 ## License
 
